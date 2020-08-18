@@ -44,19 +44,19 @@ Run the project's Storybook for a full list of examples with `yarn storybook`.
 
 Prop Name | Type | Description | Default value
 ---|---|---|---
-show? | ReactNode | This prop will be rendered when prompt to show the content | `undefined`
-hide? | ReactNode | This prop will be rendered when prompt to hide the content | `undefined`
-as? | any | Use this to render a different HTML tag | `button`
-htmlProps? | HTMLProps | Use this to pass any props to the HTML element | `undefined`
-children? | ReactNode | This prop will be rendered if no `show` or `hide` is set | `undefined`
+show | ReactNode | This prop will be rendered when prompt to show the content | `undefined`
+hide | ReactNode | This prop will be rendered when prompt to hide the content | `undefined`
+as | any | Use this to render a different HTML tag | `button`
+htmlProps | HTMLProps | Use this to pass any props to the HTML element | `undefined`
+children | ReactNode | This prop will be rendered if no `show` or `hide` is set | `undefined`
 
 ### DisclosureContent
 
 Prop Name | Type | Description | Default value
 ---|---|---|---
-as? | any | Use this to render a different HTML tag | `button`
-htmlProps? | HTMLProps | Use this to pass any props to the wrapping HTML element | `undefined`
-children? | ReactNode | This prop is the content of the disclosure | `undefined`
+as | any | Use this to render a different HTML tag | `button`
+htmlProps | HTMLProps | Use this to pass any props to the wrapping HTML element | `undefined`
+children | ReactNode | This prop is the content of the disclosure | `undefined`
 
 ### DisclosureLayoutGroup
 
@@ -68,15 +68,15 @@ maxVisible | `enum` | Possible values `one` it will render only one `DisclosureL
 
 Prop Name | Type | Description | Default value
 ---|---|---|---
-show? | ReactNode | This prop will be rendered when prompt to show the content | `undefined`
-hide? | ReactNode | This prop will be rendered when prompt to hide the content | `undefined`
-as? | any | Use this to render a different HTML tag | `button`
-htmlProps? | HTMLProps | Use this to pass any props to the HTML element | `undefined`
-children? | ReactNode | This prop will be rendered if no `show` or `hide` is set | `undefined`
+show | ReactNode | This prop will be rendered when prompt to show the content | `undefined`
+hide | ReactNode | This prop will be rendered when prompt to hide the content | `undefined`
+as | any | Use this to render a different HTML tag | `button`
+htmlProps | HTMLProps | Use this to pass any props to the HTML element | `undefined`
+children | ReactNode | This prop will be rendered if no `show` or `hide` is set | `undefined`
 
 ### DisclosureStateIndicator
 
 Prop Name | Type | Description | Default value
 ---|---|---|---
-show? | ReactNode | This prop will be rendered when prompt to show the content | `undefined`
-hide? | ReactNode | This prop will be rendered when prompt to hide the content | `undefined`
+show | ReactNode | This prop will be rendered when prompt to show the content | `undefined`
+hide | ReactNode | This prop will be rendered when prompt to hide the content | `undefined`
