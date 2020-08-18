@@ -1,16 +1,18 @@
 import React, { FC, ReactNode } from 'react'
-import { Disclosure } from 'reakit/Disclosure'
+import { Disclosure, DisclosureHTMLProps } from 'reakit/Disclosure'
 
 import { useDisclosureState } from './DisclosureContext'
 
-interface Props {
+export interface DisclosureTriggerProps {
   id?: string
   show?: ReactNode
   hide?: ReactNode
+  as?: any
+  htmlProps?: DisclosureHTMLProps
   children?: ReactNode
 }
 
-const DisclosureTrigger: FC<Props> = ({ show, hide, children }) => {
+const DisclosureTrigger: FC<DisclosureTriggerProps> = ({ as, htmlProps, show, hide, children }) => {
   const state = useDisclosureState()
 
   if (!state) {
@@ -18,7 +20,7 @@ const DisclosureTrigger: FC<Props> = ({ show, hide, children }) => {
   }
 
   return (
-    <Disclosure {...state}>
+    <Disclosure as={as} {...htmlProps} {...state}>
       {children ?? (state.visible ? hide : show)}
     </Disclosure>
   )

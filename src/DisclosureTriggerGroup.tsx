@@ -1,38 +1,52 @@
-import React, { FC, ReactNode, useMemo } from 'react'
-import { Disclosure, DisclosureStateReturn } from 'reakit/Disclosure'
+import React, { FC, ReactNode, useMemo } from 'react';
+import {
+  Disclosure,
+  DisclosureStateReturn,
+  DisclosureHTMLProps,
+} from 'reakit/Disclosure';
 
 import {
   useDisclosureGroup,
   useDisclosureGroupChildren,
-} from './DisclosureGroupContext'
+} from './DisclosureGroupContext';
 
-interface Props {
-  id?: string
-  show?: ReactNode
-  hide?: ReactNode
-  children?: ReactNode
+export interface DisclosureTriggerGroupProps {
+  id?: string;
+  show?: ReactNode;
+  hide?: ReactNode;
+  as?: any;
+  htmlProps?: DisclosureHTMLProps;
+  children?: ReactNode;
 }
 
-const DisclosureTriggerGroup: FC<Props> = ({ show, hide, children }) => {
-  const { changeGroupVisibility } = useDisclosureGroup()
-  const disclosureGroupChildren = useDisclosureGroupChildren()
+const DisclosureTriggerGroup: FC<DisclosureTriggerGroupProps> = ({
+  as,
+  htmlProps,
+  show,
+  hide,
+  children,
+}) => {
+  const { changeGroupVisibility } = useDisclosureGroup();
+  const disclosureGroupChildren = useDisclosureGroupChildren();
 
   const childDisclosures = useMemo(() => {
-    return Object.values(disclosureGroupChildren)
-  }, [disclosureGroupChildren])
+    return Object.values(disclosureGroupChildren);
+  }, [disclosureGroupChildren]);
 
   const childrenId = useMemo(() => {
-    return childDisclosures.map(content => content.baseId)
-  }, [disclosureGroupChildren])
+    return childDisclosures.map(content => content.baseId);
+  }, [disclosureGroupChildren]);
 
   const props = useMemo(() => {
     return {
+      as,
+      htmlProps,
       onClick: () => changeGroupVisibility(childrenId),
-    }
-  }, [changeGroupVisibility, childrenId])
+    };
+  }, [changeGroupVisibility, childrenId]);
 
   if (childDisclosures.length === 0) {
-    return null
+    return null;
   }
 
   return (
@@ -41,12 +55,12 @@ const DisclosureTriggerGroup: FC<Props> = ({ show, hide, children }) => {
         children ?? (state.visible ? hide : show)
       }
     </DisclosureRecursive>
-  )
-}
+  );
+};
 
 interface DisclosureRecursiveProps {
-  disclosures: DisclosureStateReturn[]
-  props: any
+  disclosures: DisclosureStateReturn[];
+  props: DisclosureHTMLProps;
 }
 
 const DisclosureRecursive: FC<DisclosureRecursiveProps> = ({
@@ -54,14 +68,14 @@ const DisclosureRecursive: FC<DisclosureRecursiveProps> = ({
   disclosures,
   children,
 }) => {
-  const [current, ...next] = disclosures
+  const [current, ...next] = disclosures;
 
   if (next.length === 0) {
     return (
       <Disclosure {...props} {...current}>
         {typeof children === 'function' ? children(current) : children}
       </Disclosure>
-    )
+    );
   }
 
   return (
@@ -76,7 +90,7 @@ const DisclosureRecursive: FC<DisclosureRecursiveProps> = ({
         ? children(current)
         : children}
     </Disclosure>
-  )
-}
+  );
+};
 
-export default DisclosureTriggerGroup
+export default DisclosureTriggerGroup;

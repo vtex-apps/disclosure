@@ -1,18 +1,28 @@
 import React from 'react';
 
 import DisclosureLayout from '../src/DisclosureLayout';
-import DisclosureContent from '../src/DisclosureContent';
-import DisclosureTrigger from '../src/DisclosureTrigger';
+import DisclosureContent, {
+  DisclosureContentProps,
+} from '../src/DisclosureContent';
+import DisclosureTrigger, {
+  DisclosureTriggerProps,
+} from '../src/DisclosureTrigger';
 import DisclosureStateIndicator from '../src/DisclosureStateIndicator';
 
 export default {
   title: 'DisclosureLayout',
 };
 
-export const Default = () => (
+export const Default = ({
+  triggerProps = {},
+  contentProps = {},
+}: {
+  triggerProps?: DisclosureTriggerProps;
+  contentProps?: Omit<DisclosureContentProps, 'children'>;
+}) => (
   <DisclosureLayout>
-    <DisclosureTrigger>Trigger</DisclosureTrigger>
-    <DisclosureContent>Content</DisclosureContent>
+    <DisclosureTrigger {...triggerProps}>Trigger</DisclosureTrigger>
+    <DisclosureContent {...contentProps}>Content</DisclosureContent>
   </DisclosureLayout>
 );
 

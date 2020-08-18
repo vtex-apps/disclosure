@@ -1,21 +1,30 @@
-import React, { FC, ReactNode } from 'react'
-import { useDisclosureContent } from 'reakit/Disclosure'
+import React, { FC, ReactNode } from 'react';
+import { useDisclosureContent } from 'reakit/Disclosure';
 
-import { useDisclosureState } from './DisclosureContext'
+import { useDisclosureState } from './DisclosureContext';
+import { BoxHTMLProps } from 'reakit/ts';
 
-interface Props {
-  children: ReactNode
+export interface DisclosureContentProps {
+  children: ReactNode;
+  as?: any;
+  htmlProps?: BoxHTMLProps;
 }
 
-const DisclosureContent: FC<Props> = ({ children }) => {
-  const state = useDisclosureState()
-  const htmlProps = useDisclosureContent(state)
+const DisclosureContent: FC<DisclosureContentProps> = ({
+  as = 'div',
+  htmlProps,
+  children,
+}) => {
+  const state = useDisclosureState();
+  const props = useDisclosureContent(state, htmlProps);
 
   if (!state) {
-    return <></>
+    return <></>;
   }
 
-  return <div {...htmlProps}>{children}</div>
-}
+  const Component = as;
 
-export default DisclosureContent
+  return <Component {...props}>{children}</Component>;
+};
+
+export default DisclosureContent;

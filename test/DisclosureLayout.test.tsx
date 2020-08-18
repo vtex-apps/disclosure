@@ -56,3 +56,20 @@ test('should render hide and show props of state indicator', async () => {
   getByText('-', { exact: false }).click();
   await waitFor(() => expect(content).not.toBeVisible());
 });
+
+test('should render hide and show props of state indicator', async () => {
+  const { getByText } = render(
+    <Default
+      contentProps={{ as: 'header', htmlProps: { className: 'barfoo' } }}
+      triggerProps={{ as: 'section', htmlProps: { className: 'foobar' } }}
+    />
+  );
+
+  const content = getByText('Content');
+  expect(content).toHaveClass('barfoo');
+  expect(content.tagName).toBe('HEADER');
+
+  const trigger = getByText('Trigger')
+  expect(trigger).toHaveClass('foobar');
+  expect(trigger.tagName).toBe('SECTION');
+});
