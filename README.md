@@ -58,6 +58,13 @@ as | any | Use this to render a different HTML tag | `button`
 htmlProps | HTMLProps | Use this to pass any props to the wrapping HTML element | `undefined`
 children | ReactNode | This prop is the content of the disclosure | `undefined`
 
+### DisclosureLayout
+
+Prop Name | Type | Description | Default value
+---|---|---|---
+initialVisibility | `enum` | `visible` to have it's content initially open, or `hidden` to be hidden. | `hidden`
+animated | `boolean` or `number` | To perform animations, you must set this to `true`. It'll enable additional data-* attributes on it's content which you can use as selectors in CSS. It will also ensure that the element will only get hidden when the transition has ended. | `false`
+
 ### DisclosureLayoutGroup
 
 Prop Name | Type | Description | Default value

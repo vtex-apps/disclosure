@@ -2,13 +2,12 @@ import React, { FC } from 'react'
 
 import { DisclosureProvider } from './DisclosureContext'
 
-interface Props {
-  id?: string
+export interface DisclosureLayoutProps {
   initialVisibility?: 'visible' | 'hidden'
   animated?: boolean | number
 }
 
-const DisclosureLayout: FC<Props> = ({
+const DisclosureLayout: FC<DisclosureLayoutProps> = ({
   initialVisibility = 'hidden',
   animated = false,
   children,
