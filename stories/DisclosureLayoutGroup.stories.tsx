@@ -1,7 +1,9 @@
 import React from 'react';
 
 import DisclosureLayoutGroup from '../src/DisclosureLayoutGroup';
-import DisclosureTriggerGroup from '../src/DisclosureTriggerGroup';
+import DisclosureTriggerGroup, {
+  DisclosureTriggerGroupProps,
+} from '../src/DisclosureTriggerGroup';
 import DisclosureLayout from '../src/DisclosureLayout';
 import DisclosureContent from '../src/DisclosureContent';
 import DisclosureTrigger from '../src/DisclosureTrigger';
@@ -33,7 +35,11 @@ export const Default = () => (
   </DisclosureLayoutGroup>
 );
 
-export const Trigger = () => (
+export const Trigger = ({
+  triggerProps = {},
+}: {
+  triggerProps?: DisclosureTriggerGroupProps;
+}) => (
   <DisclosureLayoutGroup>
     <div>
       <DisclosureLayout>
@@ -54,7 +60,9 @@ export const Trigger = () => (
       </DisclosureLayout>
     </div>
 
-    <DisclosureTriggerGroup>Trigger Group</DisclosureTriggerGroup>
+    <DisclosureTriggerGroup {...triggerProps}>
+      Trigger Group
+    </DisclosureTriggerGroup>
   </DisclosureLayoutGroup>
 );
 

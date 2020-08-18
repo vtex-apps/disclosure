@@ -38,8 +38,7 @@ const DisclosureTriggerGroup: FC<DisclosureTriggerGroupProps> = ({
 
   const props = useMemo(() => {
     return {
-      as,
-      htmlProps,
+      ...htmlProps,
       onClick: () => changeGroupVisibility(childrenId),
     };
   }, [changeGroupVisibility, childrenId]);
@@ -49,7 +48,7 @@ const DisclosureTriggerGroup: FC<DisclosureTriggerGroupProps> = ({
   }
 
   return (
-    <DisclosureRecursive props={props} disclosures={childDisclosures}>
+    <DisclosureRecursive as={as} props={props} disclosures={childDisclosures}>
       {(state: DisclosureStateReturn) =>
         children ?? (state.visible ? hide : show)
       }
@@ -58,11 +57,13 @@ const DisclosureTriggerGroup: FC<DisclosureTriggerGroupProps> = ({
 };
 
 interface DisclosureRecursiveProps {
+  as: any
   disclosures: DisclosureStateReturn[];
   props: DisclosureHTMLProps;
 }
 
 const DisclosureRecursive: FC<DisclosureRecursiveProps> = ({
+  as,
   props,
   disclosures,
   children,
@@ -71,7 +72,7 @@ const DisclosureRecursive: FC<DisclosureRecursiveProps> = ({
 
   if (next.length === 0) {
     return (
-      <Disclosure {...props} {...current}>
+      <Disclosure as={as} {...props} {...current}>
         {typeof children === 'function' ? children(current) : children}
       </Disclosure>
     );
@@ -81,7 +82,7 @@ const DisclosureRecursive: FC<DisclosureRecursiveProps> = ({
     <Disclosure {...props} {...current}>
       {next.length > 0
         ? childProps => (
-            <DisclosureRecursive props={childProps} disclosures={next}>
+            <DisclosureRecursive as={as} props={childProps} disclosures={next}>
               {children}
             </DisclosureRecursive>
           )

@@ -189,3 +189,16 @@ test('trigger with show and hide', async () => {
   expect(content2).not.toBeVisible();
   expect(content3).not.toBeVisible();
 });
+
+
+test('should render hide and show props of state indicator', async () => {
+  const { debug, getByText } = render(
+    <Trigger
+      triggerProps={{ as: 'section', htmlProps: { className: 'foobar' } }}
+    />
+  );
+
+  const trigger = getByText('Trigger Group')
+  expect(trigger).toHaveClass('foobar');
+  expect(trigger.tagName).toBe('SECTION');
+});
