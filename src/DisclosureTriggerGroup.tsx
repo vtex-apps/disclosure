@@ -11,7 +11,6 @@ import {
 } from './DisclosureGroupContext';
 
 export interface DisclosureTriggerGroupProps {
-  id?: string;
   show?: ReactNode;
   hide?: ReactNode;
   as?: any;

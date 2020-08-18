@@ -1,17 +1,20 @@
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 
-import { DisclosureContextProvider } from './DisclosureGroupContext'
+import { DisclosureContextProvider } from './DisclosureGroupContext';
 
-interface Props {
-  maxVisible?: 'one' | 'many'
+export interface DisclosureLayoutGroupProps {
+  maxVisible?: 'one' | 'many';
 }
 
-const DisclosureLayoutGroup: FC<Props> = ({ maxVisible = 'one', children }) => {
+const DisclosureLayoutGroup: FC<DisclosureLayoutGroupProps> = ({
+  maxVisible = 'one',
+  children,
+}) => {
   return (
     <DisclosureContextProvider maxVisible={maxVisible}>
       {children}
     </DisclosureContextProvider>
-  )
-}
+  );
+};
 
-export default DisclosureLayoutGroup
+export default DisclosureLayoutGroup;

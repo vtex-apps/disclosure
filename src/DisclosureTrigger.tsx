@@ -4,7 +4,6 @@ import { Disclosure, DisclosureHTMLProps } from 'reakit/Disclosure'
 import { useDisclosureState } from './DisclosureContext'
 
 export interface DisclosureTriggerProps {
-  id?: string
   show?: ReactNode
   hide?: ReactNode
   as?: any

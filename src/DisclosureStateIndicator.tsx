@@ -2,13 +2,12 @@ import React, { FC, ReactNode } from 'react'
 
 import { useDisclosureState } from './DisclosureContext'
 
-interface Props {
-  id?: string
+export interface DisclosureStateIndicatorProps {
   show?: ReactNode
   hide?: ReactNode
 }
 
-const DisclosureStateIndicator: FC<Props> = ({ show, hide }) => {
+const DisclosureStateIndicator: FC<DisclosureStateIndicatorProps> = ({ show, hide }) => {
   const state = useDisclosureState()
 
   if (!state) {
