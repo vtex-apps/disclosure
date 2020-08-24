@@ -1,7 +1,7 @@
 import React, { FC, ReactNode } from 'react';
 import { useDisclosureContent } from 'reakit/Disclosure';
 
-import { useDisclosureState } from './DisclosureContext';
+import { useDisclosure } from './DisclosureContext';
 import { BoxHTMLProps } from 'reakit/ts';
 
 export interface DisclosureContentProps {
@@ -15,7 +15,7 @@ const DisclosureContent: FC<DisclosureContentProps> = ({
   htmlProps,
   children,
 }) => {
-  const state = useDisclosureState();
+  const { state } = useDisclosure();
   const props = useDisclosureContent(state, htmlProps);
 
   if (!state) {

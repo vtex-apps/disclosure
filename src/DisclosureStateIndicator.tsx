@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react';
 
-import { useDisclosureState } from './DisclosureContext';
+import { useDisclosure } from './DisclosureContext';
 
 export interface DisclosureStateIndicatorProps {
   show?: ReactNode;
@@ -11,7 +11,7 @@ const DisclosureStateIndicator: FC<DisclosureStateIndicatorProps> = ({
   show,
   hide,
 }) => {
-  const state = useDisclosureState();
+  const { state } = useDisclosure();
 
   if (!state) {
     return null;

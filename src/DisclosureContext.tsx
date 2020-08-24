@@ -68,7 +68,9 @@ export const DisclosureProvider: React.FC<Props> = ({
   );
 };
 
-export const useDisclosureState = (): DisclosureStateReturn | undefined => {
+export const useDisclosure = (): {
+  state: DisclosureStateReturn | undefined;
+} => {
   const state = React.useContext(DisclosureContext);
-  return state;
+  return { state };
 };

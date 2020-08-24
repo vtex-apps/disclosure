@@ -1,7 +1,7 @@
 import React, { FC, ReactNode } from 'react';
 import { Disclosure, DisclosureHTMLProps } from 'reakit/Disclosure';
 
-import { useDisclosureState } from './DisclosureContext';
+import { useDisclosure } from './DisclosureContext';
 
 export interface DisclosureTriggerProps {
   show?: ReactNode;
@@ -18,7 +18,7 @@ const DisclosureTrigger: FC<DisclosureTriggerProps> = ({
   hide,
   children,
 }) => {
-  const state = useDisclosureState();
+  const { state } = useDisclosure();
 
   if (!state) {
     return null;
