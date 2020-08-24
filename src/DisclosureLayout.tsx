@@ -1,10 +1,10 @@
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 
-import { DisclosureProvider } from './DisclosureContext'
+import { DisclosureProvider } from './DisclosureContext';
 
 export interface DisclosureLayoutProps {
-  initialVisibility?: 'visible' | 'hidden'
-  animated?: boolean | number
+  initialVisibility?: 'visible' | 'hidden';
+  animated?: boolean | number;
 }
 
 const DisclosureLayout: FC<DisclosureLayoutProps> = ({
@@ -19,7 +19,7 @@ const DisclosureLayout: FC<DisclosureLayoutProps> = ({
     >
       {children}
     </DisclosureProvider>
-  )
-}
+  );
+};
 
-export default DisclosureLayout
+export default DisclosureLayout;

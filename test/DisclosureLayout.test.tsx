@@ -69,7 +69,7 @@ test('should render hide and show props of state indicator', async () => {
   expect(content).toHaveClass('barfoo');
   expect(content.tagName).toBe('HEADER');
 
-  const trigger = getByText('Trigger')
+  const trigger = getByText('Trigger');
   expect(trigger).toHaveClass('foobar');
   expect(trigger.tagName).toBe('SECTION');
 });

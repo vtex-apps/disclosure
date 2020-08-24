@@ -34,14 +34,14 @@ const DisclosureTriggerGroup: FC<DisclosureTriggerGroupProps> = ({
 
   const childrenId = useMemo(() => {
     return childDisclosures.map(content => content.baseId);
-  }, [disclosureGroupChildren]);
+  }, [childDisclosures]);
 
   const props = useMemo(() => {
     return {
       ...htmlProps,
       onClick: () => changeGroupVisibility(childrenId),
     };
-  }, [changeGroupVisibility, childrenId]);
+  }, [changeGroupVisibility, childrenId, htmlProps]);
 
   if (childDisclosures.length === 0) {
     return null;
@@ -57,7 +57,7 @@ const DisclosureTriggerGroup: FC<DisclosureTriggerGroupProps> = ({
 };
 
 interface DisclosureRecursiveProps {
-  as: any
+  as: any;
   disclosures: DisclosureStateReturn[];
   props: DisclosureHTMLProps;
 }
