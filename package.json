@@ -61,6 +61,6 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "reakit": "^1.2.0"
+    "reakit": "^1.2.3"
   }
 }
